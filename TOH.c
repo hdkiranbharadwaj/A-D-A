@@ -41,7 +41,8 @@ int toh(int n,int* count)
 	(*count)=(*count)+1;
 		
 	else
-		toh(n-1,count);
+	{	toh(n-1,count);
 		*count=(*count)+1;
 		toh(n-1,count);
+	}
 }
