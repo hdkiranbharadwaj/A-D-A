@@ -1,0 +1,24 @@
+//command1.txt
+set title 'Euclid- Euclid'
+set style data linespoints
+set xlabel'Input size'
+set ylabel 'Basic operation Count'
+plot 'e_b.txt' title 'best case', 'e_w.txt' title 'worst case'
+pause -1 "press 1"
+
+//command2.txt
+set title 'Euclid- consec'
+set style data linespoints
+set xlabel'Input size'
+set ylabel 'Basic operation Count'
+plot 'c_b.txt' title 'best case', 'c_w.txt' title 'worst case'
+pause -1 "press 1"
+
+//command3.txt
+set title 'Euclid- Modified(-)'
+set style data linespoints
+set xlabel'Input size'
+set ylabel 'Basic operation Count'
+plot 'm_b.txt' title 'best case', 'm_w.txt' title 'worst case'
+pause -1 "hit enter"
+
