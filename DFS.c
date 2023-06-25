@@ -4,7 +4,7 @@
 int a[MAX][MAX], visited[MAX], n, acyclic = 1;
 int count = 1, cc = 1;
 
-void dfs(int v)
+void dfs(int v, int p)
 {
     int i;
     count += 1;
@@ -12,14 +12,14 @@ void dfs(int v)
     printf("%d->", v);
     for (i = 1; i <= n; i++)
     {
-        if (a[v][i] && visited[i] != 0)
+        if (a[v][i] && visited[i] != 0 && i != p)
         {
             acyclic = 0;
         }
 
         if (a[v][i] && visited[i] == 0)
         {
-            dfs(i);
+            dfs(i, v);
         }
     }
 }
@@ -33,13 +33,13 @@ void DFS(int start)
     {
         if (a[start][i] == 1 && visited[i] == 0)
         {
-            dfs(i);
+            dfs(i, start);
         }
     }
     if (count < n)
     {
         cc += 1;
-        printf("\nThe graph is disconnected the other connected component is:");
+        printf("\nThe graph is disconnected the next connected component is:");
         i = 1;
         while (visited[i] != 0 && i <= n)
         {
@@ -59,7 +59,7 @@ void checkcyclicity()
     if (cc == 1)
         printf("\nThe graph is strongly connected");
     else
-        printf("The Total number of connected components are:%d", cc);
+        printf("\nThe Total number of connected components are:%d", cc);
 }
 
 void main()
